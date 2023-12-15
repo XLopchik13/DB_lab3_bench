@@ -18,5 +18,5 @@ def test():
         res.append(total / attempts)
     cursor.close()
     conn.close()
-    print(res)
-    return res
+    print("DuckDB:    ", format(res[0], '.3f'), format(res[1], '.3f'), format(res[2], '.3f'), format(res[3], '.3f'), sep='     ')
+

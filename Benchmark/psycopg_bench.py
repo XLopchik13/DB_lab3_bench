@@ -8,8 +8,6 @@ from sqlalchemy import create_engine
 df = pandas.read_csv("tiny_data.csv")
 df["tpep_pickup_datetime"] = pandas.to_datetime(df["tpep_pickup_datetime"])
 df["tpep_dropoff_datetime"] = pandas.to_datetime(df["tpep_dropoff_datetime"])
-my_db = {"dbname": "postgres", "user": "postgres", "password": "your pass", "host": "localhost", "port": 5432}  # write your db info here
-path = "postgresql://postgres:petrov2004@localhost:5432/postgres"
 
 
 def test():
@@ -29,5 +27,4 @@ def test():
     cursor.close()
     connection.close()
     eng.dispose()
-    print(res)
-    return res
+    print("Psycopg2:  ", format(res[0], '.3f'), format(res[1], '.3f'), format(res[2], '.3f'), format(res[3], '.3f'), sep='     ')

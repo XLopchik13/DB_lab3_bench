@@ -6,15 +6,14 @@ import pandas
 
 def test():
     res = []
-    engine = create_engine("sqlite:///mydatabase.db")
+    engine = create_engine(path)
     for i in range(count):
         total = 0
         for j in range(attempts):
             start = perf_counter()
-            pandas.read_sql(queries[i], con=engine)
+            pandas.read_sql(queries[i].replace('''STRFTIME('%Y', "tpep_pickup_datetime")''', '''EXTRACT(year FROM "tpep_pickup_datetime")'''), con=engine)
             finish = perf_counter()
             total += finish - start
         res.append(total / attempts)
     engine.dispose()
-    print(res)
-    return res
+    print("Pandas:    ", format(res[0], '.3f'), format(res[1], '.3f'), format(res[2], '.3f'), format(res[3], '.3f'), sep='     ')
