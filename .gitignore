@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 /Benchmark/tiny_data.csv
 /Benchmark/mydatabase.db
+/Benchmark/nyc_yellow_big.csv
