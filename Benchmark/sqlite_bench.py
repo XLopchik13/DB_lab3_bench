@@ -4,7 +4,7 @@ from cfg import *
 import sqlite3
 from pandas import read_csv
 
-df = read_csv("tiny_data.csv")
+df = read_csv(file)
 df["tpep_pickup_datetime"] = pandas.to_datetime(df["tpep_pickup_datetime"])
 df["tpep_dropoff_datetime"] = pandas.to_datetime(df["tpep_dropoff_datetime"])
 

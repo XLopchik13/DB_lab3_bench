@@ -5,7 +5,7 @@ import pandas
 from sqlalchemy import create_engine
 
 
-df = pandas.read_csv("tiny_data.csv")
+df = pandas.read_csv(file)
 df["tpep_pickup_datetime"] = pandas.to_datetime(df["tpep_pickup_datetime"])
 df["tpep_dropoff_datetime"] = pandas.to_datetime(df["tpep_dropoff_datetime"])
 
